@@ -34,6 +34,14 @@ public class Document {
         texte = leftPart + middlePart + rightPart;
     }
 
+    public void effacer(int start, int end) {
+        String leftPart = texte.substring(0, start);
+        String rightPart = texte.substring(end);
+
+        texte = leftPart + rightPart;
+    }
+
+
 
     @Override
     public String toString() {
