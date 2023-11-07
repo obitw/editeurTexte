@@ -42,8 +42,7 @@ public class Document {
     }
 
     public void clear() {
-        texte = ""; // Effacer tout le texte
-        texte += "bug";
+        texte = "";
     }
 
 
