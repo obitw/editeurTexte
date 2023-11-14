@@ -39,6 +39,6 @@ jobs:
           # Le répertoire à publier (dossier de la Javadoc générée)
           publish_dir: ./target/site/apidocs/
 
-        # Spécification des permissions pour la branche gh-pages
-        permissions:
-          contents: write
+    # Spécification des permissions pour la branche gh-pages
+    permissions:
+      contents: write
