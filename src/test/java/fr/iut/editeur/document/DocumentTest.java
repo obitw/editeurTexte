@@ -14,7 +14,7 @@ public class DocumentTest extends TestCase {
         Document document = new Document();
         document.setTexte("Hello, World!");
         document.remplacer(0, 5, "Hi");
-        assertEquals("Hi!", document.getTexte()); //test ne passe pas
+        assertEquals("Hi, World!", document.getTexte());
     }
 
     public void testEffacer() {
