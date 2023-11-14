@@ -16,6 +16,13 @@ public class CommandeFactory {
 
     private CommandeFactory() {}
 
+    /**
+     * Crée une commande en fonction de son nom
+     * @param name nom de la commande
+     * @param document  document sur lequel la commande va s'appliquer
+     * @param parameters action à effectuer
+     * @return l'objet commande crée
+     */
     public Commande createCommand(String name, Document document, String[] parameters) {
         switch (name) {
             case "inserer": return new CommandeInserer(document, parameters);
