@@ -1,0 +1,44 @@
+# Nom du workflow
+name: Generate and Publish Javadoc
+
+# Déclenche le workflow lorsqu'un push est effectué sur la branche master
+on:
+  push:
+    branches:
+      - master
+
+# Définition des jobs à exécuter
+jobs:
+  # Job pour générer et publier la Javadoc
+  generate_and_publish_javadoc:
+    # S'exécute sur la dernière version d'Ubuntu
+    runs-on: ubuntu-latest
+
+    # Étapes à suivre dans le job
+    steps:
+      # Étape pour récupérer le code source du dépôt
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+        # Étape pour configurer et installer Java version 17
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+
+        # Étape pour générer la Javadoc avec la commande mvn javadoc:javadoc
+      - name: Generate Javadoc
+        run: mvn javadoc:javadoc
+
+        # Étape pour publier la Javadoc sur la branche gh-pages
+      - name: Publish to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # Utilisation du jeton d'accès GitHub pour autoriser l'action à pousser sur la branche
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Le répertoire à publier (dossier de la Javadoc générée)
+          publish_dir: ./target/site/apidocs/
+
+        # Spécification des permissions pour la branche gh-pages
+        permissions:
+          contents: write
