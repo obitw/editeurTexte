@@ -16,6 +16,10 @@ public class Document {
         this.texte = texte;
     }
 
+    /**
+     * Ajoute du texte a la fin du document
+     * @param texte texte a ajouter
+     */
     public void ajouter(String texte) {
         this.texte += texte;
     }
